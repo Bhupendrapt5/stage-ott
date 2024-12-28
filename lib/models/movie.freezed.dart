@@ -20,19 +20,26 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Movie {
+  @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_title')
   String get originalTitle => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
+  @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'media_type')
   String get mediaType => throw _privateConstructorUsedError;
   bool get adult => throw _privateConstructorUsedError;
+  @JsonKey(name: 'original_language')
   String get originalLanguage => throw _privateConstructorUsedError;
-  List<int> get genreIds => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
-  DateTime get releaseDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'release_date')
+  String get releaseDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'vote_count')
   int get voteCount => throw _privateConstructorUsedError;
   bool get video => throw _privateConstructorUsedError;
 
@@ -51,20 +58,19 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
   $Res call(
-      {String backdropPath,
+      {@JsonKey(name: 'backdrop_path') String backdropPath,
       int id,
       String title,
-      String originalTitle,
+      @JsonKey(name: 'original_title') String originalTitle,
       String overview,
-      String posterPath,
-      String mediaType,
+      @JsonKey(name: 'poster_path') String posterPath,
+      @JsonKey(name: 'media_type') String mediaType,
       bool adult,
-      String originalLanguage,
-      List<int> genreIds,
+      @JsonKey(name: 'original_language') String originalLanguage,
       double popularity,
-      DateTime releaseDate,
-      double voteAverage,
-      int voteCount,
+      @JsonKey(name: 'release_date') String releaseDate,
+      @JsonKey(name: 'vote_average') double voteAverage,
+      @JsonKey(name: 'vote_count') int voteCount,
       bool video});
 }
 
@@ -92,7 +98,6 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? mediaType = null,
     Object? adult = null,
     Object? originalLanguage = null,
-    Object? genreIds = null,
     Object? popularity = null,
     Object? releaseDate = null,
     Object? voteAverage = null,
@@ -136,10 +141,6 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
               as String,
-      genreIds: null == genreIds
-          ? _value.genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
@@ -147,7 +148,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
@@ -172,20 +173,19 @@ abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String backdropPath,
+      {@JsonKey(name: 'backdrop_path') String backdropPath,
       int id,
       String title,
-      String originalTitle,
+      @JsonKey(name: 'original_title') String originalTitle,
       String overview,
-      String posterPath,
-      String mediaType,
+      @JsonKey(name: 'poster_path') String posterPath,
+      @JsonKey(name: 'media_type') String mediaType,
       bool adult,
-      String originalLanguage,
-      List<int> genreIds,
+      @JsonKey(name: 'original_language') String originalLanguage,
       double popularity,
-      DateTime releaseDate,
-      double voteAverage,
-      int voteCount,
+      @JsonKey(name: 'release_date') String releaseDate,
+      @JsonKey(name: 'vote_average') double voteAverage,
+      @JsonKey(name: 'vote_count') int voteCount,
       bool video});
 }
 
@@ -211,7 +211,6 @@ class __$$MovieImplCopyWithImpl<$Res>
     Object? mediaType = null,
     Object? adult = null,
     Object? originalLanguage = null,
-    Object? genreIds = null,
     Object? popularity = null,
     Object? releaseDate = null,
     Object? voteAverage = null,
@@ -255,10 +254,6 @@ class __$$MovieImplCopyWithImpl<$Res>
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
               as String,
-      genreIds: null == genreIds
-          ? _value._genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
       popularity: null == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
@@ -266,7 +261,7 @@ class __$$MovieImplCopyWithImpl<$Res>
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
@@ -287,59 +282,57 @@ class __$$MovieImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MovieImpl implements _Movie {
   const _$MovieImpl(
-      {required this.backdropPath,
+      {@JsonKey(name: 'backdrop_path') required this.backdropPath,
       required this.id,
       required this.title,
-      required this.originalTitle,
+      @JsonKey(name: 'original_title') required this.originalTitle,
       required this.overview,
-      required this.posterPath,
-      required this.mediaType,
+      @JsonKey(name: 'poster_path') required this.posterPath,
+      @JsonKey(name: 'media_type') required this.mediaType,
       required this.adult,
-      required this.originalLanguage,
-      required final List<int> genreIds,
+      @JsonKey(name: 'original_language') required this.originalLanguage,
       required this.popularity,
-      required this.releaseDate,
-      required this.voteAverage,
-      required this.voteCount,
-      this.video = false})
-      : _genreIds = genreIds;
+      @JsonKey(name: 'release_date') required this.releaseDate,
+      @JsonKey(name: 'vote_average') required this.voteAverage,
+      @JsonKey(name: 'vote_count') required this.voteCount,
+      this.video = false});
 
   factory _$MovieImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieImplFromJson(json);
 
   @override
+  @JsonKey(name: 'backdrop_path')
   final String backdropPath;
   @override
   final int id;
   @override
   final String title;
   @override
+  @JsonKey(name: 'original_title')
   final String originalTitle;
   @override
   final String overview;
   @override
+  @JsonKey(name: 'poster_path')
   final String posterPath;
   @override
+  @JsonKey(name: 'media_type')
   final String mediaType;
   @override
   final bool adult;
   @override
+  @JsonKey(name: 'original_language')
   final String originalLanguage;
-  final List<int> _genreIds;
-  @override
-  List<int> get genreIds {
-    if (_genreIds is EqualUnmodifiableListView) return _genreIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_genreIds);
-  }
-
   @override
   final double popularity;
   @override
-  final DateTime releaseDate;
+  @JsonKey(name: 'release_date')
+  final String releaseDate;
   @override
+  @JsonKey(name: 'vote_average')
   final double voteAverage;
   @override
+  @JsonKey(name: 'vote_count')
   final int voteCount;
   @override
   @JsonKey()
@@ -347,7 +340,7 @@ class _$MovieImpl implements _Movie {
 
   @override
   String toString() {
-    return 'Movie(backdropPath: $backdropPath, id: $id, title: $title, originalTitle: $originalTitle, overview: $overview, posterPath: $posterPath, mediaType: $mediaType, adult: $adult, originalLanguage: $originalLanguage, genreIds: $genreIds, popularity: $popularity, releaseDate: $releaseDate, voteAverage: $voteAverage, voteCount: $voteCount, video: $video)';
+    return 'Movie(backdropPath: $backdropPath, id: $id, title: $title, originalTitle: $originalTitle, overview: $overview, posterPath: $posterPath, mediaType: $mediaType, adult: $adult, originalLanguage: $originalLanguage, popularity: $popularity, releaseDate: $releaseDate, voteAverage: $voteAverage, voteCount: $voteCount, video: $video)';
   }
 
   @override
@@ -370,7 +363,6 @@ class _$MovieImpl implements _Movie {
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.originalLanguage, originalLanguage) ||
                 other.originalLanguage == originalLanguage) &&
-            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
             (identical(other.popularity, popularity) ||
                 other.popularity == popularity) &&
             (identical(other.releaseDate, releaseDate) ||
@@ -395,7 +387,6 @@ class _$MovieImpl implements _Movie {
       mediaType,
       adult,
       originalLanguage,
-      const DeepCollectionEquality().hash(_genreIds),
       popularity,
       releaseDate,
       voteAverage,
@@ -420,51 +411,57 @@ class _$MovieImpl implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {required final String backdropPath,
+      {@JsonKey(name: 'backdrop_path') required final String backdropPath,
       required final int id,
       required final String title,
-      required final String originalTitle,
+      @JsonKey(name: 'original_title') required final String originalTitle,
       required final String overview,
-      required final String posterPath,
-      required final String mediaType,
+      @JsonKey(name: 'poster_path') required final String posterPath,
+      @JsonKey(name: 'media_type') required final String mediaType,
       required final bool adult,
+      @JsonKey(name: 'original_language')
       required final String originalLanguage,
-      required final List<int> genreIds,
       required final double popularity,
-      required final DateTime releaseDate,
-      required final double voteAverage,
-      required final int voteCount,
+      @JsonKey(name: 'release_date') required final String releaseDate,
+      @JsonKey(name: 'vote_average') required final double voteAverage,
+      @JsonKey(name: 'vote_count') required final int voteCount,
       final bool video}) = _$MovieImpl;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$MovieImpl.fromJson;
 
   @override
+  @JsonKey(name: 'backdrop_path')
   String get backdropPath;
   @override
   int get id;
   @override
   String get title;
   @override
+  @JsonKey(name: 'original_title')
   String get originalTitle;
   @override
   String get overview;
   @override
+  @JsonKey(name: 'poster_path')
   String get posterPath;
   @override
+  @JsonKey(name: 'media_type')
   String get mediaType;
   @override
   bool get adult;
   @override
+  @JsonKey(name: 'original_language')
   String get originalLanguage;
-  @override
-  List<int> get genreIds;
   @override
   double get popularity;
   @override
-  DateTime get releaseDate;
+  @JsonKey(name: 'release_date')
+  String get releaseDate;
   @override
+  @JsonKey(name: 'vote_average')
   double get voteAverage;
   @override
+  @JsonKey(name: 'vote_count')
   int get voteCount;
   @override
   bool get video;

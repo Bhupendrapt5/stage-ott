@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_ott_assignment/models/movie.dart';
+import 'package:stage_ott_assignment/providers/favorite_movies_notifier.dart';
 import 'package:stage_ott_assignment/utils/constant_string.dart';
 
-class MovieTile extends StatelessWidget {
+class MovieTile extends ConsumerWidget {
   const MovieTile({super.key, required this.movie});
 
   final Movie movie;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMoviesNotifier =
+        ref.watch(favoriteMoviesNotifierProvider.notifier);
+    final isFavorite = ref.watch(isMovieFavoriteNotifierProvider(movie: movie));
     return Column(
       children: [
         Image.network(
@@ -59,7 +64,18 @@ class MovieTile extends StatelessWidget {
                   children: [
                     BaseLabel(text: movie.releaseDate),
                     Spacer(),
-                    Icon(Icons.favorite_border, size: 40.w),
+                    GestureDetector(
+                      onTap: () {
+                        isFavorite
+                            ? favoriteMoviesNotifier.removeFavoriteMovie(movie)
+                            : favoriteMoviesNotifier.addFavoriteMovie(movie);
+                      },
+                      child: Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                        size: 40.w,
+                        color: isFavorite ? Colors.red : Colors.grey,
+                      ),
+                    ),
                   ],
                 ),
               ],

@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_ott_assignment/models/movie.dart';
+import 'package:stage_ott_assignment/providers/favorite_movies_notifier.dart';
 import 'package:stage_ott_assignment/providers/trending_movies_notifier.dart';
 import 'package:stage_ott_assignment/views/movie_tile_widget.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      ref.read(favoriteMoviesNotifierProvider.notifier).loadFavorites();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen<Set<Movie>>(favoriteMoviesNotifierProvider, (prev, next) {});
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,

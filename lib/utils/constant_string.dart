@@ -7,3 +7,7 @@ class AppConstants {
 class Endpoints {
   static const String trendingMovies = 'trending/movie/week';
 }
+
+class SharedPreferencesKeys {
+  static const String favoriteMovies = 'favoriteMovies';
+}

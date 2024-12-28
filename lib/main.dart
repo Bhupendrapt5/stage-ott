@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_ott_assignment/views/home_screen.dart';
 
 void main() {
@@ -12,11 +13,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(1080, 2400),
+      minTextAdapt: true,
+      builder: (context, child) => MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen());
+        home: HomeScreen(),
+      ),
+    );
   }
 }

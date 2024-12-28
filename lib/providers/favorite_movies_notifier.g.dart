@@ -159,7 +159,7 @@ class _IsMovieFavoriteNotifierProviderElement
 }
 
 String _$favoriteMoviesNotifierHash() =>
-    r'1d0fceb25b34cd08ce126b99b22d22d59c369638';
+    r'fafb4b6d500a919dc03ed45545b940283da5b71e';
 
 /// See also [FavoriteMoviesNotifier].
 @ProviderFor(FavoriteMoviesNotifier)

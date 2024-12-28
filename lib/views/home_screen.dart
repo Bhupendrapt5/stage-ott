@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_ott_assignment/models/movie.dart';
 import 'package:stage_ott_assignment/providers/favorite_movies_notifier.dart';
-import 'package:stage_ott_assignment/providers/trending_movies_notifier.dart';
+import 'package:stage_ott_assignment/providers/movie_state_notifier.dart';
 import 'package:stage_ott_assignment/views/movie_tile_widget.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -38,9 +38,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ),
         ),
       ),
-      body: ref.watch(getTrendingMoviesProvider).when(
-            data: (movies) => _TrendingMoviesGridView(movies: movies),
-            error: (error, stackTrace) => Text(error.toString()),
+      body: ref.watch(movieStateNotifierProvider).when(
+            data: (movies, onlyFavorites) => Column(
+              spacing: onlyFavorites ? 16.w : 0.w,
+              children: [
+                if (onlyFavorites)
+                  Text(
+                    'Displaying Your Favorites',
+                    style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 55.sp,
+                        fontStyle: FontStyle.italic),
+                  ),
+                Expanded(
+                  child: _TrendingMoviesGridView(movies: movies),
+                ),
+              ],
+            ),
+            error: (error) => Text(error),
             loading: () => const Center(child: CircularProgressIndicator()),
           ),
     );

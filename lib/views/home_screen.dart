@@ -5,6 +5,7 @@ import 'package:stage_ott_assignment/models/movie.dart';
 import 'package:stage_ott_assignment/providers/favorite_movies_notifier.dart';
 import 'package:stage_ott_assignment/providers/movie_state_notifier.dart';
 import 'package:stage_ott_assignment/views/movie_tile_widget.dart';
+import 'package:stage_ott_assignment/views/search_bar.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -40,8 +41,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       body: ref.watch(movieStateNotifierProvider).when(
             data: (movies, onlyFavorites) => Column(
-              spacing: onlyFavorites ? 16.w : 0.w,
+              spacing: onlyFavorites ? 16.w : 10.w,
               children: [
+                SizedBox(height: 10.w),
+                SearchBarWidget(),
                 if (onlyFavorites)
                   Text(
                     'Displaying Your Favorites',

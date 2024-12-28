@@ -1,6 +1,6 @@
 name: stage_ott_assignment
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^5.7.0
+  freezed: ^2.5.7
+  freezed_annotation: ^2.4.4
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
 
@@ -19,6 +21,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   build_runner: ^2.4.14
   riverpod_generator: ^2.6.3
+  json_serializable: ^6.7.1
 
 flutter:
   uses-material-design: true
